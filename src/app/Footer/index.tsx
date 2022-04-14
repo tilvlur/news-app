@@ -2,9 +2,10 @@ import styles from "./Footer.module.scss";
 
 function Footer() {
   return (
-    <div className={styles.container}>
-      <div>Footer</div>
-    </div>
+    <footer className={styles.container}>
+      <span className={styles.appName}>&copy;&nbsp;News App&nbsp;</span>
+      <span className={styles.name}>by Timur Khrustalyov&nbsp;</span>
+    </footer>
   );
 }
 

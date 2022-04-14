@@ -2,12 +2,19 @@
 @use "src/common/styles/variables" as *;
 
 .container {
-  background-color: $bgMain;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+  @include bp-all {
+    background-color: $bgMain;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 
-  .content {
-    flex: 1 0 auto;
+    .content {
+      flex: 1 0 auto;
+    }
+  }
+
+  @include bp-from($tablet) {
+    max-width: $desktop;
+    margin: 0 auto;
   }
 }

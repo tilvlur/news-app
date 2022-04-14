@@ -1,7 +1,35 @@
 @use "src/common/styles/variables" as *;
 
 .container {
-  flex: 0 1 auto;
-  height: 50px;
-  background-color: $blue;
+  @include bp-all {
+    flex: 0 1 auto;
+    display: flex;
+    align-items: center;
+    background-color: $bgFooter;
+  }
+
+  @include bp-between(0, $mobile) {
+    height: 30px;
+    padding: 0 $spacingS;
+    font-size: 0.7rem;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    height: 40px;
+    padding: 0 $spacingM;
+    font-size: 0.8rem;
+  }
+
+  @include bp-from($tablet) {
+    height: 50px;
+    padding: 0 $spacingL;
+  }
+
+  .appName {
+    color: $beige;
+  }
+
+  .name {
+    color: $blue;
+  }
 }
