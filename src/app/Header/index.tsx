@@ -1,10 +1,13 @@
 import styles from "./Header.module.scss";
+import Navigation from "./Navigation";
+import Login from "./Login";
 
 function Header() {
   return (
-    <div className={styles.container}>
-      <div>Header</div>
-    </div>
+    <header className={styles.container}>
+      <Navigation />
+      <Login />
+    </header>
   );
 }
 

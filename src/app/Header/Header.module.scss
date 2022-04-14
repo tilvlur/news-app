@@ -1,7 +1,27 @@
 @use "src/common/styles/variables" as *;
 
 .container {
-  flex: 0 1 auto;
-  height: 50px;
-  background-color: $yellow400;
+  @include bp-all {
+    display: flex;
+    gap: $spacingS;
+    flex: 0 1 auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $yellow400;
+  }
+
+  @include bp-between(0, $mobile) {
+    min-height: 50px;
+    padding: 0 $spacingS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    min-height: 60px;
+    padding: 0 $spacingM;
+  }
+
+  @include bp-from($tablet) {
+    min-height: 70px;
+    padding: 0 $spacingL;
+  }
 }
