@@ -1,0 +1,80 @@
+@mixin reset-button {
+  appearance: none;
+
+  font-family: inherit;
+
+  vertical-align: baseline;
+
+  overflow: visible;
+
+  padding: 0;
+  border: none;
+
+  outline: none;
+
+  color: inherit;
+  background: none;
+
+  box-shadow: none;
+
+  cursor: pointer;
+
+  user-select: none;
+
+  -webkit-font-smoothing: inherit;
+  -moz-osx-font-smoothing: inherit;
+
+  &::-moz-focus-inner {
+    padding: 0;
+    border: 0;
+  }
+
+  &:disabled {
+    pointer-events: none;
+
+    cursor: default;
+  }
+}
+
+@mixin reset-link {
+  font-family: inherit;
+
+  text-decoration: none;
+
+  outline: none;
+
+  color: inherit;
+
+  cursor: pointer;
+}
+
+@mixin reset-list {
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
+}
+
+@mixin reset-input-base {
+  appearance: none;
+
+  font: inherit;
+
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+
+  background: none;
+
+  &:disabled {
+    color: inherit;
+
+    opacity: 1;
+    -webkit-text-fill-color: inherit;
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
