@@ -1,0 +1,7 @@
+@use "src/common/styles/variables" as *;
+
+.container {
+  flex: 0 1 auto;
+  height: 50px;
+  background-color: $yellow400;
+}
