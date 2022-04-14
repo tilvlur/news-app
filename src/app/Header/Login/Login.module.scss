@@ -1,0 +1,22 @@
+@use "src/common/styles/variables" as *;
+
+.container {
+  @include bp-all {}
+
+  .icon {
+    @include bp-all {
+      overflow: hidden;
+      flex: 0 0 auto;
+    }
+
+    @include bp-between(0, $mobile) {
+      width: 20px;
+      height: 20px;
+    }
+
+    @include bp-from($mobile) {
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
