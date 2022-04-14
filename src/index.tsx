@@ -5,13 +5,18 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./app/store";
 import * as serviceWorker from "./serviceWorker";
 import App from "./app/App";
+import Home from "./app/routes/Home";
+import News from "./app/routes/News";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<App />} />
+          <Route path="/" element={<App />}>
+            <Route index element={<Home />} />
+            <Route path="/news" element={<News />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </Provider>

@@ -16,11 +16,14 @@ $blue: #d4e9ec;
 $yellow400: #f9d875;
 $yellow600: #ffc32d;
 
+$red500: #FC293B;
+
 // PALETTE
 $bgMain: $beige;
 $bgFooter: $gray800;
 $textColor: $gray800;
 $textColorFaded: $gray300;
+$activeLink: $red500;
 
 // SPACING
 $spacingXS: 5px;
@@ -50,13 +53,13 @@ $desktop: 1170px;
 }
 
 @mixin bp-till($type) {
-  @media screen and (max-width: $type - 1) {
+  @media screen and (max-width: $type - 0.1) {
     @content;
   }
 }
 
 @mixin bp-between($type-from, $type-to) {
-  @media screen and (min-width: $type-from) and (max-width: $type-to - 1) {
+  @media screen and (min-width: $type-from) and (max-width: $type-to - 0.1) {
     @content;
   }
 }
