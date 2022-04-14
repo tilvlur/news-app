@@ -1,0 +1,61 @@
+// COLORS
+$black: #000;
+$white: #fff;
+
+$gray300: #969aa4;
+$gray700: #394155;
+$gray800: #2d3448;
+
+$alabaster300: #edeee7;
+$alabaster700: #bcc8b8;
+
+$beige: #fffaf3;
+
+$blue: #d4e9ec;
+
+$yellow400: #f9d875;
+$yellow600: #ffc32d;
+
+// PALETTE
+$bgMain: $beige;
+$textColor: $gray800;
+$textColorFaded: $gray300;
+
+// SPACING
+$spacingXS: 5px;
+$spacingS: 10px;
+$spacingM: 15px;
+$spacingL: 30px;
+
+// BORDER RADII
+$borderRadiusM: 8px;
+
+// BREAKPOINTS
+$mobile: 360px;
+$tablet: 768px;
+$desktop: 1170px;
+
+
+@mixin bp-all {
+  @media screen {
+    @content;
+  }
+}
+
+@mixin bp-from($type) {
+  @media screen and (min-width: $type) {
+    @content;
+  }
+}
+
+@mixin bp-till($type) {
+  @media screen and (max-width: $type - 1) {
+    @content;
+  }
+}
+
+@mixin bp-between($type-from, $type-to) {
+  @media screen and (min-width: $type-from) and (max-width: $type-to - 1) {
+    @content;
+  }
+}
