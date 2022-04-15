@@ -1,0 +1,27 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  @include bp-all {
+    display: flex;
+    justify-content: center;
+    margin-top: 30vh;
+
+    span {
+      font-weight: 600;
+      text-transform: capitalize;
+    }
+  }
+
+  @include bp-between(0, $mobile) {
+    font-size: 1.3rem;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    font-size: 1.7rem;
+  }
+
+  @include bp-from($tablet) {
+    font-size: 2rem;
+  }
+}
