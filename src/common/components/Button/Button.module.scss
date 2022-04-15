@@ -1,0 +1,45 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  @include bp-all {
+    @include reset-button;
+    width: 100%;
+    display: block;
+    padding: 0 $spacingM;
+    background: $bgButton;
+    font-weight: 600;
+    text-transform: uppercase;
+
+    &:hover {
+      background-color: darken($bgButton, 5%);
+    }
+
+    &:active {
+      outline: none;
+      box-shadow: 0 0 0 2px darken($bgButton, 15%);
+    }
+
+    &[disabled] {
+      color: $textColorFaded;
+      background: $bgButtonFaded;
+    }
+  }
+
+  @include bp-between(0, $mobile) {
+    height: 30px;
+    font-size: 0.8rem;
+    border-radius: $borderRadiusS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    height: 35px;
+    font-size: 0.9rem;
+    border-radius: $borderRadiusM;
+  }
+
+  @include bp-from($tablet) {
+    height: 40px;
+    border-radius: $borderRadiusL;
+  }
+}
