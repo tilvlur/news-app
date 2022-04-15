@@ -1,14 +1,16 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 import type { RootState } from "../../app/store";
 
+export type UserId = string;
+
 interface RegisteredUserData {
-  userId: string;
+  userId: UserId;
   userRole: "user" | "admin";
   userName: string;
   userPassword: string;
 }
 
-interface LoginState {
+export interface LoginState {
   currentUserRole: "guest" | "user" | "admin";
   passStatus: "idle" | "error" | "pass";
   currentUserData: RegisteredUserData | null;
