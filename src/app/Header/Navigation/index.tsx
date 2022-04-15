@@ -24,7 +24,7 @@ function Navigation() {
         {renderLogo}
       </NavLink>
       <NavLink to="news" className={linkStyle}>
-        News
+        <span>Новости</span>
       </NavLink>
     </nav>
   );

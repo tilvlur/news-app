@@ -49,6 +49,10 @@
       .text {
         max-width: 170px;
       }
+
+      span {
+        font-size: 0.9rem;
+      }
     }
 
     @include bp-between($mobile, $tablet) {
@@ -63,6 +67,10 @@
       .text {
         max-width: 180px;
       }
+
+      span {
+        font-size: 1rem;
+      }
     }
 
     @include bp-from($tablet) {
@@ -75,6 +83,10 @@
 
       .text {
         max-width: 240px;
+      }
+
+      span {
+        font-size: 1.2rem;
       }
     }
   }

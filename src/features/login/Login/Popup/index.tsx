@@ -60,10 +60,10 @@ function Popup({ isCloseAfterPass, setIsShowPopup }: PopupProps) {
   // RENDER ELEMENTS
   const renderMainBtn =
     passStatus === "pass" ? (
-      <Button text="Logout" onClick={onLogoutHandle} />
+      <Button text="Выйти" onClick={onLogoutHandle} />
     ) : (
       <Button
-        text="Login"
+        text="Войти"
         onClick={onLoginHandle}
         disabled={isMainBtnDisabled}
       />
