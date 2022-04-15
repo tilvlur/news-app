@@ -26,9 +26,10 @@
 .input {
   @include bp-all {
     @include reset-input-base;
-    border: 1px solid $borderColor;
-    display: block;
     width: 100%;
+    display: block;
+    background: $white;
+    border: 1px solid $borderColor;
   }
 
   @include bp-between(0, $mobile) {
