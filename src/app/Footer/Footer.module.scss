@@ -22,6 +22,7 @@
 
   @include bp-from($tablet) {
     height: 50px;
+    margin-top: $spacingL;
     padding: 0 $spacingL;
   }
 
