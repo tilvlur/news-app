@@ -1,12 +1,59 @@
+import { useCallback, useEffect, useState } from "react";
 import { ReactComponent as LoginIcon } from "./i/login.svg";
+import { ReactComponent as LogoutIcon } from "./i/logout.svg";
 import styles from "./Login.module.scss";
+import Popup from "./Popup";
+import { useAppSelector } from "../../../common/hooks/hooks";
+import { selectLoginData } from "../../../features/users/usersSlice";
 
 function Login() {
+  const [isShowPopup, setIsShowPopup] = useState<boolean>(false);
+  const [isCloseAfterPass, setIsCloseAfterPass] = useState<boolean>(false);
+  const { passStatus } = useAppSelector(selectLoginData);
+
+  const onBtnClickHandler = () => {
+    setIsShowPopup(!isShowPopup);
+  };
+
+  const setIsShowPopupCallback = useCallback(
+    (isShow) => setIsShowPopup(isShow),
+    [],
+  );
+
+  useEffect(() => {
+    if (passStatus === "pass" && !isCloseAfterPass) {
+      setIsShowPopup(false);
+      setIsCloseAfterPass(true);
+    } else if (passStatus !== "pass") {
+      setIsCloseAfterPass(false);
+    }
+  }, [isCloseAfterPass, passStatus]);
+
+  // RENDER
+  const renderLoginIcon =
+    passStatus === "pass" ? (
+      <LogoutIcon className={styles.button__icon} />
+    ) : (
+      <LoginIcon className={styles.button__icon} />
+    );
+
+  const renderPopup = isShowPopup ? (
+    <Popup
+      isCloseAfterPass={isCloseAfterPass}
+      setIsShowPopup={setIsShowPopupCallback}
+    />
+  ) : null;
+
   return (
     <div className={styles.container}>
-      <div className={styles.icon}>
-        <LoginIcon width="100%" height="100%" fill="#2d3448" />
-      </div>
+      <button
+        className={styles.button}
+        type="button"
+        onClick={onBtnClickHandler}
+      >
+        {renderLoginIcon}
+      </button>
+      {renderPopup}
     </div>
   );
 }

@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import ReactDOM from "react-dom/client";
 import { Provider } from "react-redux";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { store } from "./app/store";
@@ -8,7 +8,11 @@ import App from "./app/App";
 import Home from "./app/routes/Home";
 import News from "./app/routes/News";
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById("root") as HTMLElement,
+);
+
+root.render(
   <React.StrictMode>
     <Provider store={store}>
       <BrowserRouter>
@@ -21,7 +25,6 @@ ReactDOM.render(
       </BrowserRouter>
     </Provider>
   </React.StrictMode>,
-  document.getElementById("root"),
 );
 
 // If you want your app to work offline and load faster, you can change

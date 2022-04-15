@@ -1,9 +1,15 @@
 @use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
 
 .container {
-  @include bp-all {}
+  @include bp-all {
+    display: flex;
+    position: relative;
+  }
 
-  .icon {
+  .button {
+    @include reset-button;
+
     @include bp-all {
       overflow: hidden;
       flex: 0 0 auto;
@@ -17,6 +23,12 @@
     @include bp-from($mobile) {
       width: 25px;
       height: 25px;
+    }
+
+    &__icon {
+      width: 100%;
+      height: 100%;
+      fill: #2d3448;
     }
   }
 }
