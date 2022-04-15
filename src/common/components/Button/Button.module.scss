@@ -7,22 +7,44 @@
     width: 100%;
     display: block;
     padding: 0 $spacingM;
-    background: $bgButton;
     font-weight: 600;
     text-transform: uppercase;
 
-    &:hover {
-      background-color: darken($bgButton, 5%);
+    &_base {
+      background: $bgButton;
+
+      &:hover {
+        background: darken($bgButton, 5%);
+      }
+
+      &:active {
+        outline: none;
+        box-shadow: 0 0 0 2px darken($bgButton, 15%);
+      }
+
+      &[disabled] {
+        color: $textColorFaded;
+        background: $bgButtonFaded;
+      }
     }
 
-    &:active {
-      outline: none;
-      box-shadow: 0 0 0 2px darken($bgButton, 15%);
-    }
+    &_delete {
+      color: $white;
+      background: $bgDeleteButton;
 
-    &[disabled] {
-      color: $textColorFaded;
-      background: $bgButtonFaded;
+      &:hover {
+        background: darken($bgDeleteButton, 5%);
+      }
+
+      &:active {
+        outline: none;
+        box-shadow: 0 0 0 2px lighten($bgDeleteButton, 15%);
+      }
+
+      &[disabled] {
+        color: lighten($textColorFaded, 10%);
+        background: $bgDeleteButtonFaded;
+      }
     }
   }
 
