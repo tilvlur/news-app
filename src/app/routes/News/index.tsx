@@ -1,7 +1,10 @@
+import NewsList from "../../../features/news/NewsList";
+import styles from "./News.module.scss";
+
 function News() {
   return (
-    <div>
-      <div>News</div>
+    <div className={styles.container}>
+      <NewsList />
     </div>
   );
 }

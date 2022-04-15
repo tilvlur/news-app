@@ -1,0 +1,16 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  @include bp-between(0, $mobile) {
+    padding: 0 $spacingS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    padding: 0 $spacingM;
+  }
+
+  @include bp-from($tablet) {
+    padding: 0 $spacingL;
+  }
+}
