@@ -1,6 +1,6 @@
 import styles from "./Header.module.scss";
 import Navigation from "./Navigation";
-import Login from "./Login";
+import Login from "../../features/login/Login";
 
 function Header() {
   return (

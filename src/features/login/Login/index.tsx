@@ -4,7 +4,7 @@ import { ReactComponent as LogoutIcon } from "./i/logout.svg";
 import styles from "./Login.module.scss";
 import Popup from "./Popup";
 import { useAppSelector } from "../../../common/hooks/hooks";
-import { selectLoginData } from "../../../features/users/usersSlice";
+import { selectLoginData } from "../loginSlice";
 
 function Login() {
   const [isShowPopup, setIsShowPopup] = useState<boolean>(false);

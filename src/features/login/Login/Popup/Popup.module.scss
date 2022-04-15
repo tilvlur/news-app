@@ -1,5 +1,5 @@
-@use "src/common/styles/variables" as *;
-@use "src/common/styles/resetMixins" as *;
+@use "../../../../common/styles/variables" as *;
+@use "../../../../common/styles/resetMixins" as *;
 
 .container {
   @include bp-all {

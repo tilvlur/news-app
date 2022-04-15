@@ -1,11 +1,7 @@
 import { ChangeEvent, useCallback, useState } from "react";
 import classNames from "classnames";
 import styles from "./Popup.module.scss";
-import {
-  selectLoginData,
-  setLogin,
-  setLogout,
-} from "../../../../features/users/usersSlice";
+import { selectLoginData, setLogin, setLogout } from "../../loginSlice";
 import { useAppDispatch, useAppSelector } from "../../../../common/hooks/hooks";
 import { ReactComponent as UserIcon } from "./i/userIcon.svg";
 import { ReactComponent as AdminIcon } from "./i/adminIcon.svg";
