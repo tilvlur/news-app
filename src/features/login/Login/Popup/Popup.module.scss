@@ -7,6 +7,7 @@
     background-color: $bgPopup;
     border-radius: $borderRadiusL;
     box-shadow: -1px 1px 2px 0px $shadowColor;
+    z-index: 1;
 
     .closeButton {
       @include reset-button;
