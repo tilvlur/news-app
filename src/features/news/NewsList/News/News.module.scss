@@ -1,0 +1,128 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  @include bp-all() {
+    position: relative;
+    border: 1px solid $borderColor;
+    background-color: $bgNews;
+    border-radius: $borderRadiusL;
+  }
+
+  @include bp-between(0, $mobile) {
+    font-size: 0.7rem;
+    padding: $spacingS;
+    margin: $spacingS 0;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    font-size: 0.8rem;
+    padding: $spacingM;
+    margin: $spacingM 0;
+  }
+
+  @include bp-from($tablet) {
+    font-size: 0.9rem;
+    padding: $spacingL;
+  }
+
+  &__twoColWithButtons {
+    @include bp-from($tablet) {
+      padding-bottom: 80px;
+    }
+  }
+
+  .title {
+    @include bp-all {
+      font-weight: 600;
+      line-height: 1;
+    }
+
+    @include bp-between(0, $mobile) {
+      font-size: 0.9rem;
+      margin-bottom: $spacingXS;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      font-size: 1rem;
+      margin-bottom: $spacingS;
+    }
+
+    @include bp-from($tablet) {
+      font-size: 1.1rem;
+      margin-bottom: $spacingM;
+    }
+  }
+
+  .date {
+    @include bp-all {
+      font-style: italic;
+      color: $textColorFaded;
+    }
+
+    @include bp-between(0, $mobile) {
+      font-size: 0.65rem;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      font-size: 0.75rem;
+    }
+
+    @include bp-from($tablet) {
+      font-size: 0.85rem;
+    }
+  }
+
+  .content {
+    @include bp-between(0, $mobile) {
+      font-size: 0.8rem;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      font-size: 0.9rem;
+    }
+
+    @include bp-from($tablet) {
+      font-size: 1rem;
+    }
+  }
+
+  .buttonContainer {
+    @include bp-all {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    @include bp-between(0, $mobile) {
+      margin-top: $spacingS;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      margin-top: $spacingM;
+    }
+
+    @include bp-from($tablet) {
+      position: absolute;
+      right: $spacingL;
+      bottom: $spacingL;
+    }
+
+    .buttons {
+      @include bp-all {
+        display: flex;
+      }
+
+      @include bp-between(0, $mobile) {
+        gap: $spacingS;
+      }
+
+      @include bp-between($mobile, $tablet) {
+        gap: $spacingM;
+      }
+
+      @include bp-from($tablet) {
+        gap: $spacingL;
+      }
+    }
+  }
+}
