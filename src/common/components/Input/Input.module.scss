@@ -1,0 +1,53 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.label {
+  @include bp-all {
+    font-weight: 600;
+    margin-bottom: $spacingXS;
+  }
+
+  @include bp-between(0, $mobile) {
+    font-size: 0.7rem;
+    margin-top: $spacingS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    font-size: 0.75rem;
+    margin-top: $spacingM;
+  }
+
+  @include bp-from($tablet) {
+    font-size: 0.8rem;
+    margin-top: $spacingL;
+  }
+}
+
+.input {
+  @include bp-all {
+    @include reset-input-base;
+    border: 1px solid $borderColor;
+    display: block;
+    width: 100%;
+  }
+
+  @include bp-between(0, $mobile) {
+    height: 30px;
+    font-size: 0.8rem;
+    padding: 0 $spacingXS;
+    border-radius: $borderRadiusS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    height: 35px;
+    font-size: 0.9rem;
+    padding: 0 $spacingS;
+    border-radius: $borderRadiusM;
+  }
+
+  @include bp-from($tablet) {
+    height: 40px;
+    padding: 0 $spacingS;
+    border-radius: $borderRadiusL;
+  }
+}

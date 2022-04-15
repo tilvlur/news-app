@@ -2,6 +2,7 @@
 $black: #000;
 $white: #fff;
 
+$gray100: #e0e1e5;
 $gray300: #969aa4;
 $gray700: #394155;
 $gray800: #2d3448;
@@ -16,14 +17,24 @@ $blue: #d4e9ec;
 $yellow400: #f9d875;
 $yellow600: #ffc32d;
 
+$red300: #ff5160;
 $red500: #FC293B;
 
 // PALETTE
 $bgMain: $beige;
+$bgPopup: $white;
 $bgFooter: $gray800;
+$bgButton: $blue;
+$bgButtonFaded: $gray100;
 $textColor: $gray800;
 $textColorFaded: $gray300;
+$userIcon: $gray700;
+$adminIcon: $red300;
 $activeLink: $red500;
+$closeBtn: $red500;
+$errorHintText: $red500;
+$shadowColor: $gray800;
+$borderColor: $gray800;
 
 // SPACING
 $spacingXS: 5px;
@@ -32,7 +43,9 @@ $spacingM: 15px;
 $spacingL: 20px;
 
 // BORDER RADII
-$borderRadiusM: 8px;
+$borderRadiusS: 4px;
+$borderRadiusM: 6px;
+$borderRadiusL: 8px;
 
 // BREAKPOINTS
 $mobile: 360px;
