@@ -1,0 +1,50 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  .management {
+    @include bp-between(0, $mobile) {
+      margin-top: $spacingS;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      margin-top: $spacingM;
+      display: flex;
+      flex-direction: row-reverse;
+    }
+
+    @include bp-from($tablet) {
+      margin: $spacingL 0;
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: space-between;
+
+      input {
+        width: calc(50% - #{$spacingS});
+      }
+    }
+
+    .createBtn {
+      @include bp-between(0, $mobile) {
+        width: 100px;
+        margin-top: $spacingS;
+      }
+
+      @include bp-between($mobile, $tablet) {
+        margin-right: $spacingM;
+      }
+
+      @include bp-from($tablet) {
+        margin-right: $spacingL;
+      }
+    }
+  }
+
+  .news {
+    @include bp-from($tablet) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: $spacingL;
+    }
+  }
+}
