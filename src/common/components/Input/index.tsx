@@ -4,11 +4,12 @@ import styles from "./Input.module.scss";
 interface InputProps {
   htmlFor?: string;
   label?: string;
-  type: "text" | "number" | "password";
+  type: "text" | "number" | "search" | "password";
   value: string;
   placeholder?: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   isLabel?: boolean;
+  ariaLabel?: string;
 }
 
 function Input({
@@ -19,6 +20,7 @@ function Input({
   placeholder,
   onChange,
   isLabel = true,
+  ariaLabel,
 }: InputProps) {
   return isLabel ? (
     <label htmlFor={htmlFor}>
@@ -30,6 +32,7 @@ function Input({
         value={value}
         placeholder={placeholder}
         onChange={onChange}
+        aria-label={ariaLabel}
       />
     </label>
   ) : (
@@ -39,6 +42,7 @@ function Input({
       value={value}
       placeholder={placeholder}
       onChange={onChange}
+      aria-label={ariaLabel}
     />
   );
 }

@@ -30,6 +30,11 @@
     display: block;
     background: $white;
     border: 1px solid $borderColor;
+
+    &:focus {
+      border-width: 2px;
+      border-color: $activeBorderColor;
+    }
   }
 
   @include bp-between(0, $mobile) {
