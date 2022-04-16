@@ -4,7 +4,7 @@
 .container {
   @include bp-all() {
     position: relative;
-    border: 1px solid $borderColor;
+    border: 1px solid $newsBorderColor;
     background-color: $bgNews;
     border-radius: $borderRadiusL;
   }
@@ -87,7 +87,7 @@
     }
   }
 
-  .buttonContainer {
+  .buttonsContainer {
     @include bp-all {
       display: flex;
       justify-content: flex-end;

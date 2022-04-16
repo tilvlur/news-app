@@ -16,7 +16,7 @@ function News({ date, title, content, currentUserRole }: NewsProps) {
 
   const renderButtons =
     currentUserRole === "user" ? (
-      <div className={styles.buttonContainer}>
+      <div className={styles.buttonsContainer}>
         <div className={styles.buttons}>
           <Button text="Изменить" onClick={() => {}} />
           <Button text="Удалить" variants="delete" onClick={() => {}} />
