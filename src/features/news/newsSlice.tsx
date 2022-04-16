@@ -89,12 +89,19 @@ const newsSlice = createSlice({
         existingNews.content = content;
       }
     },
+    newsDeleted(state, action: PayloadAction<Pick<NewsData, "id">>) {
+      const { id } = action.payload;
+      const existingNews = state.newsList.find((news) => news.id === id);
+      if (existingNews) {
+        state.newsList = state.newsList.filter((news) => news.id !== id);
+      }
+    },
   },
 });
 
 export default newsSlice.reducer;
 
-export const { newsAdded, newsEdited } = newsSlice.actions;
+export const { newsAdded, newsEdited, newsDeleted } = newsSlice.actions;
 
 // Сортируем новости по убыванию
 export const selectNewsList = (state: RootState) =>

@@ -1,10 +1,11 @@
 import { memo } from "react";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
-import { NewsData } from "../../newsSlice";
+import { NewsData, newsDeleted } from "../../newsSlice";
 import styles from "./News.module.scss";
 import { LoginState } from "../../../login/loginSlice";
 import Button from "../../../../common/components/Button";
+import { useAppDispatch } from "../../../../common/hooks/hooks";
 
 interface NewsProps
   extends Pick<NewsData, "id" | "date" | "title" | "content">,
@@ -12,9 +13,14 @@ interface NewsProps
 
 function News({ id, date, title, content, currentUserRole }: NewsProps) {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const onEditBtnClickHandle = () => {
     navigate(`/edit-news/${id}`);
+  };
+
+  const onDelBtnClickHandle = () => {
+    dispatch(newsDeleted({ id }));
   };
 
   const newsStyle = classNames(styles.container, {
@@ -26,7 +32,11 @@ function News({ id, date, title, content, currentUserRole }: NewsProps) {
       <div className={styles.buttonsContainer}>
         <div className={styles.buttons}>
           <Button text="Изменить" onClick={onEditBtnClickHandle} />
-          <Button text="Удалить" variants="delete" onClick={() => {}} />
+          <Button
+            text="Удалить"
+            variants="delete"
+            onClick={onDelBtnClickHandle}
+          />
         </div>
       </div>
     ) : null;
