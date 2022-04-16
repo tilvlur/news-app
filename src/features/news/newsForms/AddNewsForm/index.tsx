@@ -1,12 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { ChangeEvent, useEffect, useState } from "react";
-import { selectLoginData } from "../../login/loginSlice";
-import { useAppDispatch, useAppSelector } from "../../../common/hooks/hooks";
-import Input from "../../../common/components/Input";
-import TextArea from "../../../common/components/TextArea";
-import Button from "../../../common/components/Button";
-import styles from "./AddNewsForm.module.scss";
-import { newsAdded } from "../newsSlice";
+import { selectLoginData } from "../../../login/loginSlice";
+import { useAppDispatch, useAppSelector } from "../../../../common/hooks/hooks";
+import Input from "../../../../common/components/Input";
+import TextArea from "../../../../common/components/TextArea";
+import Button from "../../../../common/components/Button";
+import styles from "../NewsForm.module.scss";
+import { newsAdded } from "../../newsSlice";
 
 function AddNewsForm() {
   const [title, setTitle] = useState<string>("");

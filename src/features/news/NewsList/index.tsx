@@ -65,6 +65,7 @@ function NewsList() {
         {newsList.map((el) => (
           <News
             key={el.id}
+            id={el.id}
             date={format(new Date(el.date), "dd.MM.yyyy - HH:mm")}
             title={el.title}
             content={el.content}

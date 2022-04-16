@@ -7,8 +7,8 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./app/App";
 import Home from "./app/routes/Home";
 import News from "./app/routes/News";
-import AddNewsForm from "./features/news/AddNewsForm";
-import EditNewsForm from "./features/news/EditNewsForm";
+import AddNewsForm from "./features/news/newsForms/AddNewsForm";
+import EditNewsForm from "./features/news/newsForms/EditNewsForm";
 import NotFound from "./common/components/NotFound";
 
 const root = ReactDOM.createRoot(
