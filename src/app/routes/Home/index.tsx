@@ -8,9 +8,7 @@ function Home() {
 
   return (
     <div className={styles.container}>
-      <div>
-        Привет, <span>{user}!</span>
-      </div>
+      Привет, <span>{user}!</span>
     </div>
   );
 }
