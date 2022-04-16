@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import { ChangeEvent, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { NewsData, selectNewsList } from "../newsSlice";
 import { useAppSelector } from "../../../common/hooks/hooks";
 import News from "./News";
@@ -8,6 +9,7 @@ import Input from "../../../common/components/Input";
 import styles from "./NewsList.module.scss";
 import Button from "../../../common/components/Button";
 
+// HELPER
 function searchHelper(searchText: string, newsArr: Array<NewsData>) {
   if (!searchText) {
     return newsArr;
@@ -20,9 +22,11 @@ function searchHelper(searchText: string, newsArr: Array<NewsData>) {
   );
 }
 
+// COMPONENT
 function NewsList() {
   const { currentUserRole } = useAppSelector(selectLoginData);
   const [searchVal, setSearchVal] = useState("");
+  const navigate = useNavigate();
 
   const rawNewsList = useAppSelector(selectNewsList);
   const newsList = searchHelper(searchVal, rawNewsList);
@@ -31,11 +35,15 @@ function NewsList() {
     setSearchVal(e.target.value);
   };
 
+  const onAddNewsBtnHandle = () => {
+    navigate("/add-news");
+  };
+
   // RENDER
   const renderAddNewsBtn =
     currentUserRole === "user" ? (
       <div className={styles.createBtn}>
-        <Button text="Создать" onClick={() => {}} />
+        <Button text="Создать" onClick={onAddNewsBtnHandle} />
       </div>
     ) : null;
 
@@ -43,7 +51,8 @@ function NewsList() {
     <div className={styles.container}>
       <div className={styles.management}>
         <Input
-          type="text"
+          type="search"
+          ariaLabel="News search"
           isLabel={false}
           value={searchVal}
           placeholder="Поиск..."

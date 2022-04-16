@@ -1,0 +1,62 @@
+@use "src/common/styles/variables" as *;
+@use "src/common/styles/resetMixins" as *;
+
+.container {
+  @include bp-between(0, $mobile) {
+    padding: $spacingS;
+  }
+
+  @include bp-between($mobile, $tablet) {
+    padding: $spacingM;
+  }
+
+  @include bp-from($tablet) {
+    padding: $spacingL;
+  }
+
+  .title {
+    @include bp-all {
+      font-weight: 600;
+    }
+
+    @include bp-between(0, $mobile) {
+      font-size: 1rem;
+    }
+
+    @include bp-between($mobile, $tablet) {
+      font-size: 1.2rem;
+    }
+
+    @include bp-from($tablet) {
+      font-size: 1.3rem;
+    }
+  }
+
+  .buttonsContainer {
+    @include bp-all {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .buttons {
+      @include bp-all {
+        display: flex;
+      }
+
+      @include bp-between(0, $mobile) {
+        gap: $spacingS;
+        flex-basis: 205px;
+      }
+
+      @include bp-between($mobile, $tablet) {
+        gap: $spacingM;
+        flex-basis: 230px;
+      }
+
+      @include bp-from($tablet) {
+        gap: $spacingL;
+        flex-basis: 250px;
+      }
+    }
+  }
+}

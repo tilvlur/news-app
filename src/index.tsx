@@ -7,6 +7,9 @@ import * as serviceWorker from "./serviceWorker";
 import App from "./app/App";
 import Home from "./app/routes/Home";
 import News from "./app/routes/News";
+import AddNewsForm from "./features/news/AddNewsForm";
+import EditNewsForm from "./features/news/EditNewsForm";
+import NotFound from "./common/components/NotFound";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement,
@@ -20,6 +23,9 @@ root.render(
           <Route path="/" element={<App />}>
             <Route index element={<Home />} />
             <Route path="/news" element={<News />} />
+            <Route path="/add-news/" element={<AddNewsForm />} />
+            <Route path="/edit-news/:newsId" element={<EditNewsForm />} />
+            <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
       </BrowserRouter>
