@@ -32,6 +32,11 @@
     }
   }
 
+  .checkingHint {
+    color: $errorHintText;
+    font-weight: 600;
+  }
+
   .title {
     @include bp-all {
       font-weight: 600;
@@ -62,14 +67,26 @@
 
     @include bp-between(0, $mobile) {
       font-size: 0.65rem;
+
+      span:first-child {
+        margin-right: $spacingXS;
+      }
     }
 
     @include bp-between($mobile, $tablet) {
       font-size: 0.75rem;
+
+      span:first-child {
+        margin-right: $spacingS;
+      }
     }
 
     @include bp-from($tablet) {
       font-size: 0.85rem;
+
+      span:first-child {
+        margin-right: $spacingS;
+      }
     }
   }
 

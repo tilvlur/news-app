@@ -8,10 +8,20 @@ import Button from "../../../../common/components/Button";
 import { useAppDispatch } from "../../../../common/hooks/hooks";
 
 interface NewsProps
-  extends Pick<NewsData, "id" | "date" | "title" | "content">,
+  extends Pick<
+      NewsData,
+      "id" | "verificationStatus" | "date" | "title" | "content"
+    >,
     Pick<LoginState, "currentUserRole"> {}
 
-function News({ id, date, title, content, currentUserRole }: NewsProps) {
+function News({
+  id,
+  verificationStatus,
+  date,
+  title,
+  content,
+  currentUserRole,
+}: NewsProps) {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
 
@@ -22,6 +32,12 @@ function News({ id, date, title, content, currentUserRole }: NewsProps) {
   const onDelBtnClickHandle = () => {
     dispatch(newsDeleted({ id }));
   };
+
+  // RENDER
+  const renderCheckingHint =
+    verificationStatus === "checking" ? (
+      <span className={styles.checkingHint}>на модерации</span>
+    ) : null;
 
   const newsStyle = classNames(styles.container, {
     [styles.container__twoColWithButtons]: currentUserRole === "user",
@@ -44,7 +60,10 @@ function News({ id, date, title, content, currentUserRole }: NewsProps) {
   return (
     <div className={newsStyle}>
       <div className={styles.title}>{title}</div>
-      <div className={styles.date}>{date}</div>
+      <div className={styles.date}>
+        <span>{date}</span>
+        {renderCheckingHint}
+      </div>
       <div className={styles.content}>{content}</div>
       {renderButtons}
     </div>

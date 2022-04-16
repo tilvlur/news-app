@@ -28,7 +28,11 @@ function NewsList() {
   const [searchVal, setSearchVal] = useState("");
   const navigate = useNavigate();
 
-  const rawNewsList = useAppSelector(selectNewsList);
+  const rawNewsList = useAppSelector(selectNewsList).filter(
+    (news) =>
+      (currentUserRole === "guest" && news.verificationStatus === "approved") ||
+      currentUserRole !== "guest",
+  );
   const newsList = searchHelper(searchVal, rawNewsList);
 
   const onChangeHandle = (e: ChangeEvent<HTMLInputElement>) => {
@@ -66,6 +70,7 @@ function NewsList() {
           <News
             key={el.id}
             id={el.id}
+            verificationStatus={el.verificationStatus}
             date={format(new Date(el.date), "dd.MM.yyyy - HH:mm")}
             title={el.title}
             content={el.content}
