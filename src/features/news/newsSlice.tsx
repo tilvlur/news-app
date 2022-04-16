@@ -89,6 +89,13 @@ const newsSlice = createSlice({
         existingNews.content = content;
       }
     },
+    newsApproved(state, action: PayloadAction<Pick<NewsData, "id">>) {
+      const { id } = action.payload;
+      const existingNews = state.newsList.find((news) => news.id === id);
+      if (existingNews) {
+        existingNews.verificationStatus = "approved";
+      }
+    },
     newsDeleted(state, action: PayloadAction<Pick<NewsData, "id">>) {
       const { id } = action.payload;
       const existingNews = state.newsList.find((news) => news.id === id);
@@ -101,7 +108,8 @@ const newsSlice = createSlice({
 
 export default newsSlice.reducer;
 
-export const { newsAdded, newsEdited, newsDeleted } = newsSlice.actions;
+export const { newsAdded, newsEdited, newsDeleted, newsApproved } =
+  newsSlice.actions;
 
 // Сортируем новости по убыванию
 export const selectNewsList = (state: RootState) =>

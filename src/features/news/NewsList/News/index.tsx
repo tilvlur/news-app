@@ -1,7 +1,7 @@
 import { memo } from "react";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
-import { NewsData, newsDeleted } from "../../newsSlice";
+import { newsApproved, NewsData, newsDeleted } from "../../newsSlice";
 import styles from "./News.module.scss";
 import { LoginState } from "../../../login/loginSlice";
 import Button from "../../../../common/components/Button";
@@ -29,6 +29,10 @@ function News({
     navigate(`/edit-news/${id}`);
   };
 
+  const onApproveBtnClickHandle = () => {
+    dispatch(newsApproved({ id }));
+  };
+
   const onDelBtnClickHandle = () => {
     dispatch(newsDeleted({ id }));
   };
@@ -40,14 +44,19 @@ function News({
     ) : null;
 
   const newsStyle = classNames(styles.container, {
-    [styles.container__twoColWithButtons]: currentUserRole === "user",
+    [styles.container__twoColWithButtons]: currentUserRole !== "guest",
   });
 
   const renderButtons =
-    currentUserRole === "user" ? (
+    currentUserRole !== "guest" ? (
       <div className={styles.buttonsContainer}>
         <div className={styles.buttons}>
-          <Button text="Изменить" onClick={onEditBtnClickHandle} />
+          {currentUserRole === "user" ? (
+            <Button text="Изменить" onClick={onEditBtnClickHandle} />
+          ) : currentUserRole === "admin" &&
+            verificationStatus === "checking" ? (
+            <Button text="Одобрить" onClick={onApproveBtnClickHandle} />
+          ) : null}
           <Button
             text="Удалить"
             variants="delete"
