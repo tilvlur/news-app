@@ -1,4 +1,4 @@
-import { ChangeEvent, useCallback, useState } from "react";
+import { ChangeEvent, useCallback, useEffect, useRef, useState } from "react";
 import classNames from "classnames";
 import styles from "./Popup.module.scss";
 import {
@@ -20,6 +20,8 @@ interface PopupProps {
 }
 
 function Popup({ isCloseAfterPass, setIsShowPopup }: PopupProps) {
+  // HOOKS
+  const popup = useRef<HTMLDivElement>(null);
   const [login, setLoginVal] = useState<string>("");
   const [password, setPasswordVal] = useState<string>("");
 
@@ -39,6 +41,7 @@ function Popup({ isCloseAfterPass, setIsShowPopup }: PopupProps) {
     [],
   );
 
+  // HANDLERS
   const onLoginHandle = () => {
     dispatch(setLogin({ login, password }));
     setLoginVal("");
@@ -53,6 +56,19 @@ function Popup({ isCloseAfterPass, setIsShowPopup }: PopupProps) {
     setIsShowPopup(false);
     if (passStatus === "error") dispatch(resetPassError());
   };
+
+  // Закрыть popup по клику снаружи
+  useEffect(() => {
+    const handler = (e: MouseEvent) => {
+      if (popup.current && !popup.current.contains(e.target as Node)) {
+        onCloseBtnHandle();
+      }
+    };
+
+    document.addEventListener("mousedown", handler);
+
+    return () => document.removeEventListener("mousedown", handler);
+  });
 
   const isMainBtnDisabled =
     !login || !password || (passStatus === "error" && (!login || !password));
@@ -124,7 +140,7 @@ function Popup({ isCloseAfterPass, setIsShowPopup }: PopupProps) {
       : renderLoggedUser;
 
   return (
-    <div className={styles.container}>
+    <div ref={popup} className={styles.container}>
       <button
         className={styles.closeButton}
         type="button"
