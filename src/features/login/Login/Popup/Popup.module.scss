@@ -4,6 +4,8 @@
 .container {
   @include bp-all {
     position: absolute;
+    top: 0;
+    right: 0;
     background-color: $bgPopup;
     border-radius: $borderRadiusL;
     box-shadow: -1px 1px 2px 0px $shadowColor;
@@ -73,8 +75,6 @@
   @include bp-between(0, $mobile) {
     width: 200px;
     height: 210px;
-    top: 25px;
-    right: 0;
     padding: $spacingS;
 
     .closeButton {
@@ -103,8 +103,6 @@
   @include bp-between($mobile, $tablet) {
     width: 250px;
     height: 260px;
-    top: 30px;
-    right: 0;
     padding: $spacingM;
 
     .closeButton {
@@ -134,8 +132,6 @@
   @include bp-from($tablet) {
     width: 270px;
     height: 300px;
-    top: 35px;
-    right: 0;
     padding: $spacingL;
 
     .closeButton {

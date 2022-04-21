@@ -3,18 +3,16 @@ import { ReactComponent as LoginIcon } from "./i/login.svg";
 import { ReactComponent as LogoutIcon } from "./i/logout.svg";
 import styles from "./Login.module.scss";
 import Popup from "./Popup";
-import { useAppDispatch, useAppSelector } from "../../../common/hooks/hooks";
-import { resetPassError, selectLoginData } from "../loginSlice";
+import { useAppSelector } from "../../../common/hooks/hooks";
+import { selectLoginData } from "../loginSlice";
 
 function Login() {
   const [isShowPopup, setIsShowPopup] = useState<boolean>(false);
   const [isCloseAfterPass, setIsCloseAfterPass] = useState<boolean>(false);
   const { passStatus } = useAppSelector(selectLoginData);
-  const dispatch = useAppDispatch();
 
   const onBtnClickHandler = () => {
-    setIsShowPopup(!isShowPopup);
-    if (passStatus === "error") dispatch(resetPassError());
+    if (!isShowPopup) setIsShowPopup(true);
   };
 
   const setIsShowPopupCallback = useCallback(

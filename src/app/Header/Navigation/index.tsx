@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import styles from "./Navigation.module.scss";
-import { ReactComponent as Logo } from "./i/logo.svg";
+import logo from "./i/logo.png";
 
 function Navigation() {
   const linkStyle = ({ isActive }: { isActive: boolean }) =>
@@ -10,11 +10,9 @@ function Navigation() {
   const renderLogo = (
     <>
       <div className={styles.logo}>
-        <Logo width="100%" height="100%" />
+        <img src={logo} alt="Logo" />
       </div>
-      <div className={styles.text}>
-        Тестовое задание для frontend-разработчика Profilance Group
-      </div>
+      <div className={styles.text}>Главная</div>
     </>
   );
 
